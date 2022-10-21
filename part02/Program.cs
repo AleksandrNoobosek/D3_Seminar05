@@ -43,7 +43,17 @@ else
 return sum;
 }
 // 4. Функцию, которая проверяет является ли заданное число n полиндромом
-
+bool Palindrome(string value)
+{
+bool poli=true;
+    for (int i = 0; i < value.Length / 2; i++)
+        if (value[i] != value[value.Length - i - 1])poli = false;
+if (poli == false)
+     Console.WriteLine("число не является палиндром!"); 
+else
+    Console.WriteLine("число является палиндром!");
+return poli;
+}
 //5. Функцию, складывающую два целых числа
 void IntSum(int A, int B)
 {
@@ -79,7 +89,7 @@ bool EvenNum(int num)
 bool xу = false;
 if (num % 2 == 0) xу = true;
 if (xу == true)
- Console.WriteLine("число является чётным!");
+Console.WriteLine("число является чётным!");
 else 
 Console.WriteLine("число не является чётным!");
 return xу;
@@ -124,27 +134,28 @@ int X = int.Parse(Console.ReadLine() ?? "0");
 Console.WriteLine($"{SumNum(X)}");
 Console.ReadKey();
 Console.Clear();
-/*
+
 // 4. Функцию, которая проверяет является ли заданное число n полиндромом
-Console.WriteLine("Функцию, которая проверяет является ли заданное число n полиндромом ");
+Console.Write("4. Функцию, которая проверяет является ли заданное число n полиндромом");
+Console.WriteLine("Веедите число N: ");
+int number = int.Parse(Console.ReadLine() ?? "0");
+string value = number.ToString();
 
-Console.WriteLine("Enter yout value: ");
-double p = double.Parse(Console.ReadLine() ?? "0");
-string array = p.ToString();
-
+Console.WriteLine();
+Console.WriteLine($"{Palindrome(value)}");
 Console.ReadKey();
 Console.Clear();
-*/
+
 //5. Функцию, складывающую два целых числа
 Console.WriteLine("Функцию, складывающую два целых числа: ");
 
 Console.WriteLine();
-Console.WriteLine("Enter yout value A: ");
-int A = int.Parse(Console.ReadLine() ?? "0");
+Console.WriteLine("Введите Ваше число A: ");
+int A = int.Parse(Console.ReadLine() ?? "0"); //Convert.ToInt32 ?
 
 Console.WriteLine();
 Console.WriteLine("Enter yout value B: ");
-int B = int.Parse(Console.ReadLine() ?? "0");
+int B = int.Parse(Console.ReadLine() ?? "0");//Convert.ToInt32  ?
 Console.WriteLine($"Сумма двух чисел A и B равна"); 
 IntSum(A,B);
 
