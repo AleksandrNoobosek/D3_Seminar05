@@ -66,22 +66,14 @@ int position = -1;
 //  6. Проверка наличия элемента в массиве. Возвращает true, если элемент в массиве есть, false – нет.
 bool ElementTrueFalse(int[] array, int element)
 {
-bool xa = false; 
 for(int index = 0; index < array.Length;index++)
-    if(array[index]==element) xa = true;
-if(xa == true)
-    Console.WriteLine("Элемент в массиве найден!");  
-else
-    Console.WriteLine("Элемент в массиве не найден!");
-return xa;
+    if(array[index]==element) return true;
+return false;
 }
 //  8. Среднее арифметическое элеметов массива
 float ArithmeticMean (int[] array)
 {
-float mean = 0;
-    for(int index = 0; index < array.Length; index++)
-        mean+=array[index];
-    return mean/ ((float)array.Length);
+    return NumSum (array)/ ((float)array.Length); // float ArithmeticMean (int[] array) => NumSum (array)/ ((float)array.Length);
 }
 //  9. Подсчёт количества отрицательных элементов массива
 int CountNegative (int[] array)
@@ -128,8 +120,8 @@ int OddNum (int[] array)
             counteodd++; 
     return counteodd;
 }
-//14. Проверка является ли массив отсортированным по возрастанию. Если массив отсортирован, то возвращать true, иначе - false.
-void selectionSort(int[] array)
+// Сортировка массива
+void SelectionSort(int[] array)
 {
     for (int i = 0; i < array.Length - 1; i++)
     {
@@ -146,23 +138,15 @@ void selectionSort(int[] array)
         array[minPosition] = temporary;
     }
 }
+//14. Проверка является ли массив отсортированным по возрастанию. Если массив отсортирован, то возвращать true, иначе - false.
 bool TrueFalseSort(int[] array)
 {
-bool xe = true;
-for (int i = 1; i < array.Length; i++)
-    if (array[i] < array[i - 1])
-    {
-        xe = false;
-        break;
-    }
-if (xe == false) 
-    Console.WriteLine("Массив не отсортирован");   
-else
-     Console.WriteLine("Массив отсортирован");
-return xe;
+    for (int i = 0; i < array.Length-1; i++)
+        if(array[i+1] < array[i])  
+                return false; 
+return true;
 }
 
-Console.Clear();
 Console.Write ("Введите размер массива:  ");
 int size = int.Parse(Console.ReadLine() ?? "0");
 Console.WriteLine();
@@ -305,10 +289,7 @@ Console.WriteLine("Ваш массив: ");
 PrintArray(array);
 
 Console.WriteLine();
-
-float meat = ArithmeticMean(array);
-Console.WriteLine();
-Console.WriteLine($"Среднее арифметическое элеметов массива равно {meat}");
+Console.WriteLine($"Среднее арифметическое элеметов массива равно {ArithmeticMean(array)}");
 
 Console.ReadKey();
 Console.Clear();
@@ -405,7 +386,7 @@ Console.WriteLine();
 Console.WriteLine($": {TrueFalseSort(array)} ");
 Console.WriteLine();
 
-selectionSort(array);
+SelectionSort(array);
 Console.WriteLine("Ваш массив : ");  
 PrintArray(array);
 Console.WriteLine();
