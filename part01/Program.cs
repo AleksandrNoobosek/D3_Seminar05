@@ -2,14 +2,16 @@
 //   Заполнение массива
 void FillArray(int[] array,int min,int max)
 {
-for (int index = 0; index < array.Length; index++)                                            
-    array[index] = new Random().Next(min,max);
+    Random random = new Random();
+    for (int index = 0; index < array.Length; index++)                                            
+        array[index] = random.Next(min,max);
 }
 //7. Печать массива на экран
 void PrintArray(int[] array)
 {
     for(int index = 0 ; index < array.Length; index++)
         Console.Write($"{array[index]} ");
+    Console.WriteLine();
 }
 //  1. Поиск минимума
 int NumMin (int[] array)
@@ -29,7 +31,7 @@ int max = array[0];
     for(int index= 0; index < array.Length; index++)
     {
         if (array[index]>max)
-            max =array[index];
+            max = array[index];
     }
     return max;
 }
