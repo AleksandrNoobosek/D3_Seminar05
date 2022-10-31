@@ -8,6 +8,26 @@ double s = 0;
 s = Math.Pow((a),n);
 return s;
 }
+/*
+double Stepen(double a, double n)
+{
+    double result = 1;
+    if (n > 0)
+    {
+        for (int i = 0; i < n; i++)
+            result = result * a;
+         return result;
+    }
+    else if (n < 0)
+    {
+        for(double count = 0; count > n; n++)
+            result = result/a; 
+        return result;
+    }
+    else return result;
+}
+*/
+
 // 2. Функцию, которая вычисляет факториал числа n\
 int Factorial(int N)
 {
@@ -19,15 +39,14 @@ int f = 1;
 // 3. Функцию, которая вычисляет сумму цифр произвольного целого числа n
 int SumNum(int X)
 {
-int num; 
 int sum = 0;
     while(X!=0)
         {
-            num=X%10;
-            sum = sum + num;
+            sum = sum + (X%10);
             X=X/10; 
-        }           
-return sum;
+        }  
+if(0 > sum) return (sum*(-1));      
+else return sum;
 }
 // 4. Функцию, которая проверяет является ли заданное число n полиндромом
 bool Palindrome(string value)
@@ -37,12 +56,7 @@ bool Palindrome(string value)
 return true;
 }
 //5. Функцию, складывающую два целых числа
-int IntSum(int A, int B)
-{
-int C=0;
-if (A % 1 == 0 && B % 1 == 0) 
-    C = A + B; return C;
-}
+int IntSum(int A, int B) => A + B;
 //  6. Функцию, определяющую является ли число простым, то есть возвращающую true, если число простое, иначе - false
 bool IntegerNum(int numb)
 {
@@ -51,11 +65,7 @@ bool IntegerNum(int numb)
 return true;
 }
 //7. Функцию, определяющую является ли число чётным, то есть возвращающую true, если число чётное, иначе - false
-bool EvenNum(int num)
-{
-if (num % 2 == 0) return true;
-return false;
-}
+bool EvenNum(int num)=>(num % 2 == 0);
 
 Console.Clear();
 
